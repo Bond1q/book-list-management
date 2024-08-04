@@ -1,0 +1,30 @@
+@if((loading$ | async) === false) {
+  <div class="book-list-container">
+    <h1 class="title">Book list</h1>
+    <div class="toolbar">
+      <button mat-flat-button (click)="openBookModal()">Create book</button>
+      <mat-form-field appearance="outline" class="search">
+        <mat-label>Search</mat-label>
+        <input class="search" matInput [formControl]="searchForm" />
+      </mat-form-field>
+    </div>
+
+    <div class="book-list">
+      @if((bookList$ | async)?.length) { 
+        @if (filteredBooks$ | async; as bookList) { 
+          @for (book of bookList; track book.id; ) {
+            <app-book
+              (removeBook)="removeBook($event)"
+              (editBook)="openBookModal($event)"
+              [book]="book"
+            ></app-book>
+          } 
+        }
+      } @else{
+        <h2>Your list is currently empty (:</h2>
+      } 
+    </div>
+  </div>
+} @else {
+  <mat-spinner [diameter]="25"></mat-spinner>
+}

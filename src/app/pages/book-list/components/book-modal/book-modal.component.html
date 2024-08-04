@@ -1,0 +1,68 @@
+<h2 mat-dialog-title>Book</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="form" [formGroup]="bookForm">
+    <div class="book-cover-container">
+      <img
+        alt="Book cover"
+        class="book-cover"
+        [src]="bookForm.value.cover || 'assets/no-cover.png'"
+      />
+      <input
+        #bookCover
+        hidden="true"
+        type="file"
+        onclick="this.value=null"
+        (change)="onFileChanged($event)"
+        accept="image/*"
+      />
+      <button mat-flat-button (click)="bookCover.click()">
+        Choose book cover
+      </button>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput [formControl]="bookForm.controls.title" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Author</mat-label>
+      <input matInput [formControl]="bookForm.controls.author" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Year</mat-label>
+      <input
+        matInput
+        type="number"
+        [formControl]="bookForm.controls.year"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="description" appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="3"
+        cdkAutosizeMaxRows="5"
+        matInput
+        [formControl]="bookForm.controls.description"
+        required
+      ></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  @if (bookForm.value.id) {
+    <button (click)="removeBookFromList()" color="warn" mat-button>Remove</button>
+  }
+  <button
+    [disabled]="!bookForm.valid || !bookForm.dirty"
+    (click)="createOrEditBook()"
+    color="primary"
+    mat-flat-button
+  >
+    Save
+  </button>
+</mat-dialog-actions>

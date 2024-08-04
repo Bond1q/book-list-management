@@ -1,0 +1,28 @@
+.book-list-container {
+  .book-list {
+    margin: 0 auto;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 42px;
+    color: #282828;
+    margin-bottom: 45px;
+  }
+
+  .toolbar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .search {
+      margin-bottom: -20px;
+    }
+  }
+}

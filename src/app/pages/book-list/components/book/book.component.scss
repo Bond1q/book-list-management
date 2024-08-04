@@ -1,0 +1,47 @@
+.card {
+  width: 305px;
+  position: relative;
+  padding: 22px 15px 15px;
+}
+.book-cover {
+  padding: 0 20px;
+  width: 275px;
+  height: 350px;
+}
+
+.title {
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.mat-mdc-card-content {
+  padding: 0;
+}
+
+.additional-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #626262;
+  margin-top: 10px;
+
+  gap: 5px;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: right;
+  gap: 5px;
+  margin-left: auto;
+
+  .action-button {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+  }
+}
+
+.mat-mdc-card-actions {
+  padding: 0;
+}

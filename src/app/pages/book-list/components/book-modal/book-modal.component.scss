@@ -1,0 +1,26 @@
+.form {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .book-cover-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+
+    .book-cover {
+      box-sizing: border-box;
+      width: 235px;
+      height: 350px;
+    }
+
+    .description {
+      resize: vertical;
+      max-height: 200px;
+    }
+  }
+}

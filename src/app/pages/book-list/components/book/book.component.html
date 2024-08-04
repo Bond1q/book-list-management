@@ -1,0 +1,29 @@
+<mat-card class="card" appearance="outlined">
+  <img
+    class="book-cover"
+    mat-card-image
+    [src]="book.cover || 'assets/no-cover.png'"
+    alt="Book cover"
+  />
+  <mat-card-content>
+    <div class="title three-dots">
+      {{ book.title }}
+    </div>
+    <div class="additional-info">
+      <div class="three-dots">
+        {{ book.author }}
+      </div>
+      <div>
+        {{ book.year }}
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="footer">
+    <div class="actions">
+      <button class='action-button' (click)="removeBook.emit(book.id)" mat-raised-button color="warn">
+        Delete
+      </button>
+      <button class='action-button' (click)="editBook.emit(book)" mat-raised-button>Edit</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
